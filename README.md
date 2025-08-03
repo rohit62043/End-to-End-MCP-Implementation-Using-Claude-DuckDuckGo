@@ -63,7 +63,7 @@ project/
 flowchart TD
     A[User CLI Query] -->|Text Input| B(ClaudeClient.send_message)
     B -->|Request| C[Claude API]
-    C -->|Tool Call: fetch_web_content| D[MCP Server (/tool_call)]
+    C -->|Tool Call fetch_web_content| D[MCP Server /tool_call]
     D -->|Search Request| E[MCP Integration Layer]
     E -->|DuckDuckGo API| F[Search Results]
     F -->|Return JSON| D
@@ -165,13 +165,3 @@ pip install -r requirements.txt
 * Integrate with LangGraph
 
 ---
-
-## 🤝 Credits
-
-Built by \[Your Name], powered by Claude and DuckDuckGo APIs.
-
----
-
-## 📄 License
-
-MIT License.
