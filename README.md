@@ -1,5 +1,3 @@
-# End-to-End-MCP-Implementation-Using-Claude-DuckDuckGo
-
 # Claude + MCP Integration Project
 
 ## 🧠 What is this Project?
@@ -72,6 +70,30 @@ flowchart TD
     D -->|Tool Output| B
     B -->|Summarized Follow-up| C
     C -->|Final Answer| A
+```
+
+---
+
+## 📊 Block Diagram
+
+```mermaid
+graph TD
+    subgraph Claude Client Side
+        CLI["User Input (CLI)"] --> ClaudeClient
+        ClaudeClient --> ClaudeAPI["Claude API"]
+    end
+
+    subgraph Claude Backend
+        ClaudeAPI -->|Tool Call| MCPServer["MCP Server"]
+        MCPServer --> MCPIntegration["MCP Integration Layer"]
+        MCPIntegration --> DuckDuckGoAPI["DuckDuckGo API"]
+        DuckDuckGoAPI -->|Search Results| MCPIntegration
+        MCPIntegration --> MCPServer
+        MCPServer --> ClaudeAPI
+        ClaudeAPI --> ClaudeClient
+    end
+
+    ClaudeClient --> Output["Final Answer"]
 ```
 
 ---
